@@ -13,7 +13,7 @@ app.mount("/css", StaticFiles(directory="templates/css"), name="css")
 
 BASE_URL = "https://api.odcloud.kr/api"
 with open('where-is-clothes-boxes.yaml','r') as f:
-    OPEN_API_KEY = yaml.load(f, yaml.FullLoader)['options']['env'][0]['value']
+    OPEN_API_KEY = yaml.load(f, yaml.FullLoader)['options']['env'][0]['secret']
 
 
 @app.get("/", response_class=HTMLResponse)
