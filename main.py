@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
 import os 
+import yaml
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -21,10 +22,48 @@ async def read_index(request: Request):
 
 @app.get("/seongdong-gu")
 async def seongdong_gu(request: Request):
-    url = BASE_URL + "/15126958/v1/uddi:b8d0dfd5-cefa-4cb2-8d35-fc6b5f2507b0"  \
+    with open('api.yaml', 'r') as f:
+        api = yaml.load(f, yaml.FullLoader)['api']['seongdong-gu']
+    url = BASE_URL + api  \
         + f"?serviceKey={OPEN_API_KEY}&perPage=10&page=1"
     totalCount = requests.get(url).json()['totalCount']
-    url = BASE_URL + "/15126958/v1/uddi:b8d0dfd5-cefa-4cb2-8d35-fc6b5f2507b0"  \
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage={totalCount}"
+    response = requests.get(url).json()['data']
+    return response
+
+@app.get("/seodaemun-gu")
+async def seongdong_gu(request: Request):
+    with open('api.yaml', 'r') as f:
+        api = yaml.load(f, yaml.FullLoader)['api']['seodaemun-gu']
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage=10&page=1"
+    totalCount = requests.get(url).json()['totalCount']
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage={totalCount}"
+    response = requests.get(url).json()['data']
+    return response
+
+@app.get("/dongjak-gu")
+async def seongdong_gu(request: Request):
+    with open('api.yaml', 'r') as f:
+        api = yaml.load(f, yaml.FullLoader)['api']['dongjak-gu']
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage=10&page=1"
+    totalCount = requests.get(url).json()['totalCount']
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage={totalCount}"
+    response = requests.get(url).json()['data']
+    return response
+
+@app.get("/seongbuk-gu")
+async def seongdong_gu(request: Request):
+    with open('api.yaml', 'r') as f:
+        api = yaml.load(f, yaml.FullLoader)['api']['seongbuk-gu']
+    url = BASE_URL + api  \
+        + f"?serviceKey={OPEN_API_KEY}&perPage=10&page=1"
+    totalCount = requests.get(url).json()['totalCount']
+    url = BASE_URL + api  \
         + f"?serviceKey={OPEN_API_KEY}&perPage={totalCount}"
     response = requests.get(url).json()['data']
     return response

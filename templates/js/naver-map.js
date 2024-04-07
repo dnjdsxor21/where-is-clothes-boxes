@@ -183,18 +183,18 @@ function hasAddition (addition) {
     return !!(addition && addition.value);
 }
 
-function insertAddress(address, latitude, longitude, is_center) {
+function insertAddress(address, x, y, is_center) {
 	// var map = new naver.maps.Map('map', {
 	//     center: new naver.maps.LatLng(longitude, latitude),
 	//     zoom: 14
 	// });
     if(is_center==true){
-        var point = new naver.maps.LatLng(longitude, latitude)
+        var point = new naver.maps.LatLng(y, x)
         map.setCenter(point)
     } else {
         var marker = new naver.maps.Marker({
             map: map,
-            position: new naver.maps.LatLng(longitude, latitude),
+            position: new naver.maps.LatLng(y, x),
         });
     }
 }
