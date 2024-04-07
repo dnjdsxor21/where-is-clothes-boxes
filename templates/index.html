@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9bndfahxzo&amp;&submodules=geoencoder"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps-geocoder.js"></script>
+</head>
+<body>
+    
+    <h1 id="title">Clothes Box</h1>
+
+    <div id="search-container">
+        <select name="sido" id="sido" class="search">
+            <option value="서울시">서울시</option>
+            <option value="경기도">경기도</option>
+        </select>
+        <select name="gudong" id="gudong" class="search">
+            <option value="성동구">성동구</option>
+            <option value="서대문구">서대문구</option>
+        </select>
+        <input type="button" value="submit" id="submit" class="search"/>
+    </div>
+    
+    <div id="map" style="width:85%; height:800px">
+    
+    </div>
+    <script src="js/naver-map.js"></script>
+    <script src="js/marker.js"></script>
+    <script src="js/search.js"></script>
+
+</body>
+</html>
