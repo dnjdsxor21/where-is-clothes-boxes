@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles 
 from fastapi.templating import Jinja2Templates
 import requests
+import yaml
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -11,8 +12,8 @@ app.mount("/css", StaticFiles(directory="templates/css"), name="css")
 
 
 BASE_URL = "https://api.odcloud.kr/api"
-with open('keys','r') as f:
-    OPEN_API_KEY = f.readline()
+with open('where-is-clothes-boxes.yaml','r') as f:
+    OPEN_API_KEY = yaml.load(f, yaml.FullLoader)['options']['env'][0]['value']
 
 
 @app.get("/", response_class=HTMLResponse)
