@@ -46,3 +46,9 @@ body {
         height: 300px; /* 모바일에서의 높이 */
     }
 }
+
+#submit:hover {
+    background-color: #4CAF50; /* hover 시 배경색 변경 */
+    color: white; /* hover 시 글자색 변경 */
+    cursor: pointer; /* hover 시 커서 모양 변경 */
+}
