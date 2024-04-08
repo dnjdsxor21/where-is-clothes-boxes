@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles 
 from fastapi.templating import Jinja2Templates
 import requests
@@ -29,6 +29,10 @@ async def get_data(request: Request, name:str):
     data = fetch_table(name)
     # print(data)
     return data
+
+@app.get("/robots.txt")
+async def get_robots_txt():
+    return FileResponse("robots.txt")
 
 if __name__ =="__main__":
     pass
