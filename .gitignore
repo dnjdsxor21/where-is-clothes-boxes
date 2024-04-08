@@ -7,3 +7,4 @@ geocoding/
 output/
 *.pyc
 !robots.txt
+!requirements.txt
