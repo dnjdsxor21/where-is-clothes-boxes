@@ -49,7 +49,7 @@ def upsert_table(id:list, name:list, lat:list, lon:list):
     return data
 
 if __name__=='__main__':
-    files = os.listdir('output')[:]
+    files = sorted(os.listdir('output'))
 
     ## csv파일 합치기
     df = None 
@@ -74,7 +74,7 @@ if __name__=='__main__':
         si, do = n.split()
         metadict[si].append(do)
     json_string = json.dumps(metadict, indent=4, ensure_ascii=False)
-    with open('meta.json','w', encoding='utf-8') as f:
+    with open('./templates/json/meta.json','w', encoding='utf-8') as f:
         f.write("metaFile = ")
         f.write(json_string)
         

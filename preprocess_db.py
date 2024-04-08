@@ -16,7 +16,7 @@ def geocoding(address):
     return x_y
 
 if __name__=='__main__':
-    files = [os.path.join('data', p) for p in sorted(os.listdir('data'), reverse=True)][3:]
+    files = [os.path.join('data', p) for p in sorted(os.listdir('data'), reverse=True)]
     os.makedirs('output', exist_ok=True)
     for file in tqdm(files, total=len(files), desc='file', position=0):
         name, latitude, longitude, address = [], [],[], []
