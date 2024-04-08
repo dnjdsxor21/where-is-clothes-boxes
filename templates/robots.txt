@@ -1,4 +1,1 @@
-User-agent: *
-Allow: /
-
 Sitemap: https://port-0-where-is-clothes-boxes-2aat2cluoc9u5l.sel5.cloudtype.app/sitemap.xml
