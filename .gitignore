@@ -5,4 +5,4 @@
 data/
 geocoding/
 output/
-__pycache__/
+*.pyc
