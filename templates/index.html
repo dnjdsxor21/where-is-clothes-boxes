@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우리동네 헌옷수거함</title>
+    <meta name="keywords" content="헌옷수거함, 의료수거함">
+    <meta name="description" content="우리동네 헌옷수거함 위치 지도입니다.">
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/icons8.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9bndfahxzo&amp;&submodules=geoencoder"></script>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps-geocoder.js"></script>
@@ -14,19 +17,21 @@
     <h1 id="title">우리동네 헌옷수거함 찾기</h1>
 
     <div id="search-container">
-        <select name="sido" id="sido" class="search">
-            <option value="서울시">서울시</option>
-            <option value="경기도">경기도</option>
+        <select name="si" id="si" class="search">
+            <option value="서울특별시">서울</option>
+            <option value="경기도">경기</option>
+            <option value="제주특별자치도">제주</option>
         </select>
-        <select name="gudong" id="gudong" class="search">
+        <select name="do" id="do" class="search">
             <option value="성동구">성동구</option>
         </select>
-        <input type="button" value="submit" id="submit" class="search"/>
+        <input type="button" value="찾기" id="submit" class="search"/>
     </div>
     
-    <div id="map" style="width:85%; height:800px">
+    <div id="map" style="width:85%; height:600px">
     
     </div>
+    <script src="json/meta.json" type="text/javascript"></script>
     <script src="js/naver-map.js"></script>
     <script src="js/marker.js"></script>
     <script src="js/search.js"></script>
