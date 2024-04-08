@@ -6,3 +6,4 @@ data/
 geocoding/
 output/
 *.pyc
+!robots.txt
