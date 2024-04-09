@@ -19,6 +19,14 @@ app.mount("/templates", StaticFiles(directory="templates"), name="templates")
 BASE_URL = "https://api.odcloud.kr/api"
 # OPEN_API_KEY = os.environ['NAVER_API_KEY']
 
+@app.get("/robots.txt", response_class=PlainTextResponse)
+def get_robots_txt():
+    content = """
+    User-agent: *
+    Disallow: /
+    Sitemap: https://port-0-where-is-clothes-boxes-2aat2cluoc9u5l.sel5.cloudtype.app/templates/sitemap.xml
+    """
+    return PlainTextResponse(content=content)
 
 @app.get("/", response_class=HTMLResponse)
 async def read_index(request: Request):
@@ -31,15 +39,7 @@ async def get_data(request: Request, name:str):
     # print(data)
     return data
 
-@app.get("/robots.txt", response_class=PlainTextResponse)
-async def get_robots_txt():
-    content = """
-    User-agent: *
-    Disallow: /
-    Sitemap: https://port-0-where-is-clothes-boxes-2aat2cluoc9u5l.sel5.cloudtype.app/templates/sitemap.xml
-    """
-    print('helo')
-    return content
+
 
 if __name__ =="__main__":
     pass
