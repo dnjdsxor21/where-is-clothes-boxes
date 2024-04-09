@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles 
 from fastapi.templating import Jinja2Templates
 import requests
@@ -9,6 +9,7 @@ from supabase_db import fetch_table
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+app.mount("/img", StaticFiles(directory="templates/img"), name="img") 
 app.mount("/js", StaticFiles(directory="templates/js"), name="js") 
 app.mount("/css", StaticFiles(directory="templates/css"), name="css") 
 app.mount("/json", StaticFiles(directory="templates/json"), name="json") 
@@ -30,9 +31,15 @@ async def get_data(request: Request, name:str):
     # print(data)
     return data
 
-@app.get("/robots.txt")
+@app.get("/robots.txt", response_class=PlainTextResponse)
 async def get_robots_txt():
-    return FileResponse("robots.txt")
+    content = """
+    User-agent: *
+    Disallow: /
+    Sitemap: https://port-0-where-is-clothes-boxes-2aat2cluoc9u5l.sel5.cloudtype.app/templates/sitemap.xml
+    """
+    print('helo')
+    return content
 
 if __name__ =="__main__":
     pass
