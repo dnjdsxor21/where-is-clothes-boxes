@@ -2,7 +2,7 @@ $('#submit').on('click', function(e) {
     const sd = document.getElementById('si');
     const gd = document.getElementById('do');
     //console.log(`${sd.value} ${gd.value}`);
-    const url = `/${sd.value}-${gd.value}`;
+    const url = `/map/${sd.value}-${gd.value}`;
     fetchData(url);
 }
 );

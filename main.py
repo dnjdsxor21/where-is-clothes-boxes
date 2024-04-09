@@ -32,7 +32,7 @@ def get_robots_txt():
 async def read_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/{name}")
+@app.get("/map/{name}")
 async def get_data(request: Request, name:str):
     name = name.replace('-',' ')
     data = fetch_table(name)
