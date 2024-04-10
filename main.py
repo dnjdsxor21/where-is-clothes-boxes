@@ -24,7 +24,7 @@ def get_robots_txt():
     content = """
     User-agent: *
     Allow: /
-    Sitemap: https://port-0-where-is-clothes-boxes-2aat2cluoc9u5l.sel5.cloudtype.app/templates/sitemap.xml
+    Sitemap: http://clothes-box.site/templates/sitemap.xml
     """
     return PlainTextResponse(content=content)
 
